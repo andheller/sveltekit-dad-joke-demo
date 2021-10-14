@@ -1,7 +1,7 @@
 
 import { writable, derived } from 'svelte/store';
 
-export const jokeArr = writable(JSON.parse(localStorage.getItem('jokeArr')) || []);
+export const jokeArr = writable([]);
 
 jokeArr.subscribe(val => localStorage.setItem("jokeArr", JSON.stringify(val)));
 
@@ -9,6 +9,12 @@ export const favoriteArr = derived(
   jokeArr,
   $jokeArr => $jokeArr.filter(function (el) { return el.favorite == true; })
 );
+
+export const fetchLocal = () => {
+  if (typeof localStorage !== 'undefined') {
+    JSON.parse(localStorage.getItem('jokeArr')) || []
+  }
+}
 
 export const fetchJoke = async () => {
 

@@ -3,6 +3,21 @@ import tailwind from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
 import vercel from '@sveltejs/adapter-vercel';
 
+const warnIgnores = {
+	'css-unused-selector': {
+		capture: /.*"(.*)"$/,
+		ignore: [
+			/^\.p\d+/,
+			/^\.sm\d+/,
+			/^\.md\d+/,
+			/^\.lg\d+/,
+			/^\.xg\d+/,
+			/^\.all\d+/,
+			/^\.row(::after)?/
+		]
+	}
+}
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
@@ -20,6 +35,7 @@ const config = {
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#svelte',
 		adapter: vercel(),
+
 	}
 };
 
