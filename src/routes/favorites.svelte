@@ -1,8 +1,6 @@
 <script>
-  import { favoriteArr, fetchJoke } from "../jokestore";
   import Nav from "../components/Nav.svelte";
   import FavoriteCard from "../components/FavoriteCard.svelte";
-  fetchJoke();
 </script>
 
 <svelte:head><title>Favorite Jokes</title>'</svelte:head>
