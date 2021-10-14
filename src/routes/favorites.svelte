@@ -14,7 +14,7 @@
     class="max-w-7xl mx-auto text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8"
   >
     <h1 class="text-6xl tracking-tight text-gray-900 sm:text-4xl">
-      No Favorites
+      Favorites
     </h1>
 
     <FavoriteCard />
