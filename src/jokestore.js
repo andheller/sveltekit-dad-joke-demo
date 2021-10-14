@@ -8,7 +8,12 @@ export const favoriteArr = derived(
   $jokeArr => $jokeArr.filter(function (el) { return el.favorite == true; })
 );
 
-
+export const fetchLocal = () => {
+  if (typeof window !== 'undefined') {
+    //JSON.parse(localStorage.getItem('jokeArr')) || []
+    jokeArr.subscribe((value) => localStorage.user = JSON.stringify(value))
+  }
+}
 
 export const fetchJoke = async () => {
 
