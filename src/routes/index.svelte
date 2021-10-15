@@ -13,7 +13,7 @@
   <div
     class="max-w-7xl mx-auto text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8"
   >
-    <h1 class="text-6xl tracking-tight text-gray-900 sm:text-4xl text-white">
+    <h1 class="text-3xl tracking-tight text-gray-900 sm:text-4xl text-white">
       Ready for a joke?
     </h1>
     <div class="mt-8 flex justify-center">
