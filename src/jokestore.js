@@ -38,8 +38,6 @@ export const fetchJoke = async () => {
   const res = await jokeData.json();
   let currentJokes = JSON.parse(localStorage.getItem('jokeArr'))
 
-  console.log(currentJokes == res.id)
-
   if (currentJokes.find(x => x.id === res.id)) { fetchJoke() } else {
     jokeArr.update(v => {
       v.unshift({ "id": res.id, "joke": res.joke, favorite: false })
@@ -66,11 +64,13 @@ export const fetchHalloweenJoke = async () => {
   const jokeData = await fetch("https://v1.nocodeapi.com/cofocus/google_sheets/pcQolKnTUpiVszjF?tabId=Jokes&api_key=AScJsfZLjyjewYbUk&row_id=" + num, requestOptions)
   const res = await jokeData.json();
 
-  jokeArr.update(v => {
-    console.log(res)
-    v.unshift({ "id": res.ID, "joke": res.Joke, favorite: false })
-    return v
-  })
+  let currentJokes = JSON.parse(localStorage.getItem('jokeArr'))
 
+  if (currentJokes.find(x => x.id === res.id)) { fetchJoke() } else {
+    jokeArr.update(v => {
+      v.unshift({ "id": res.ID, "joke": res.Joke, favorite: false })
+      return v
+    })
+  }
   return res
 };
