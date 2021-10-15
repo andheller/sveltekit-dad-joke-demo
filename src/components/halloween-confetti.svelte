@@ -2,22 +2,10 @@
   import { quadIn } from "svelte/easing";
   import { onMount } from "svelte";
 
-  export let numberOfElements = 50;
+  export let numberOfElements = 30;
   export let durationInSeconds = 2;
   export let timeout;
-  export let colors = [
-    "#fff",
-    "#c7ecee",
-    "#778beb",
-    "#f7d794",
-    "#63cdda",
-    "#cf6a87",
-    "#e77f67",
-    "#786fa6",
-    "#FDA7DF",
-    "#4b7bec",
-    "#475c83",
-  ];
+
 
   let showConfetti = true;
 
@@ -40,14 +28,14 @@
 
   $: allElements = new Array(numberOfElements)
     .fill(0)
-    .map((_, i) => [pickFrom(elementOptions), pickFrom(colors), Math.random()]);
+    .map((_, i) => [pickFrom(elementOptions), Math.random()]);
 </script>
 
 <svg class="confetti" viewBox="-10 -10 10 10" class:visible={showConfetti}>
   {#each allElements as [element, color, scale], i}
     <g style="transform: scale({scale})">
       <g
-        fill={color}
+        
         style={[
           `--rotation: ${Math.random() * 360}deg`,
           `animation-delay: ${quadIn(i / numberOfElements)}s`,
