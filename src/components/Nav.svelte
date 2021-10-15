@@ -1,5 +1,6 @@
 <script>
   let open = false
+  import { page } from '$app/stores';
 </script>
   
 
@@ -69,19 +70,22 @@
           <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
           <a
             href="/"
-            class="text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+            class="{$page.path === '/' ? 'text-gray-900 ' : 'text-gray-500'}
+            inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
           >
             Jokes
           </a>
           <a
             href="/halloween"
-            class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+            class="{$page.path === '/halloween' ? 'text-gray-900 ' : 'text-gray-500'}
+            border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
           >
             Halloween
           </a>
           <a
             href="/favorites"
-            class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+            class="{$page.path === '/favorites' ? 'text-gray-900 ' : 'text-gray-500'}
+            border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
           >
             Favorite Jokes
           </a>

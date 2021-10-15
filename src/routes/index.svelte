@@ -6,7 +6,7 @@
   let visible = false;
 </script>
 
-<svelte:head><title>Jokes</title>'</svelte:head>
+<svelte:head><title>Jokes</title></svelte:head>
 <Nav />
 
 <div class="hero-bg">
