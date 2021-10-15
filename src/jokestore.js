@@ -36,12 +36,19 @@ export const fetchJoke = async () => {
     }
   });
   const res = await jokeData.json();
-  jokeArr.update(v => {
-    v.unshift({ "id": res.id, "joke": res.joke, favorite: false })
-    return v
-  })
+  let currentJokes = JSON.parse(localStorage.getItem('jokeArr'))
 
-};
+  console.log(currentJokes == res.id)
+
+  if (currentJokes.find(x => x.id === res.id)) { fetchJoke() } else {
+    jokeArr.update(v => {
+      v.unshift({ "id": res.id, "joke": res.joke, favorite: false })
+      return v
+    })
+
+  }
+}
+
 
 
 export const fetchHalloweenJoke = async () => {
