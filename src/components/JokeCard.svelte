@@ -1,5 +1,7 @@
 <script>
   import { jokeArr } from "../jokestore";
+  import { flip } from 'svelte/animate';
+  const options = {duration: 350};
   function favorite(id) {
     $jokeArr.find((x) => x.id === id).favorite = !$jokeArr.find(
       (x) => x.id === id
@@ -14,9 +16,10 @@
 </script>
 
 <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-  {#each $jokeArr as item}
+  {#each $jokeArr as item (item.id)}
     <li
-      class="jokeCard col-span-1 rounded-lg shadow-md divide-y divide-gray-200 flex flex-col {item.favorite ===
+    animate:flip={options}
+      class="bg-white jokeCard col-span-1 rounded-lg shadow-md divide-y divide-gray-200 flex flex-col {item.favorite ===
       true
         ? 'border-[#7DD3FC] border-2'
         : 'border-white-500 border-2'} "
@@ -36,6 +39,7 @@
       <div class="flex divide-x divide-gray-200">
         <div class="w-0 flex-1 flex">
           <a
+            href="#"
             on:click={favorite(item.id)}
             class="bg-white relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg  hover:text-blue-900 bg-gradient-to-r hover:from-green-50 hover:to-blue-100 cursor-pointer"
           >
@@ -60,6 +64,7 @@
         </div>
         <div class="-ml-px w-0 flex-1 flex">
           <a
+            href="#"
             on:click={remove(item.id)}
             class="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-red-900  bg-gradient-to-r hover:from-red-100 hover:to-red-200 cursor-pointer"
           >
