@@ -11,7 +11,9 @@ export const favoriteArr = derived(
 );
 
 if (browser) {
-  jokeArr.update(n => JSON.parse(localStorage.jokeArr))
+  if (localStorage.jokeArr) {
+    jokeArr.update(n => JSON.parse(localStorage.jokeArr))
+  }
   jokeArr.subscribe((value) => localStorage.jokeArr = JSON.stringify(value))
 }
 
