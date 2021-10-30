@@ -3,7 +3,7 @@
   import { onMount } from "svelte";
 
   export let numberOfElements = 50;
-  export let durationInSeconds = 2;
+  export let durationInSeconds = 1.5;
   export let timeout;
   export let colors = [
     "#fff",
